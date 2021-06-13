@@ -1,0 +1,61 @@
+
+// colors
+$primaryColor: #FFFFFF;
+$linkColor: #bd8578;
+$textColor: #FFFFFF;
+$borderColor: #e3d4ca;
+$darkgray: #636363;
+$lightgray: #f9f6f3;
+$color: #4b4b4b;
+$color1: #bd8578;
+$color2:#e3d4ca;
+$bg:#000000;
+// fonts
+$headingFont: 'Saira' #{"/*rtl:prepend:'Cairo',*/"};
+$textFont: 'Montserrat' #{"/*rtl:prepend:'Cairo',*/"};
+$fontAwesome: 'FontAwesome';
+
+
+@mixin strip-box {
+	margin:0;
+	padding:0;
+}
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+@mixin trans($trans: .2s){
+	-webkit-transition: all $trans ease-in-out;
+	-moz-transition: all $trans ease-in-out;
+	transition: all $trans ease-in-out;
+}
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1){
+	overflow: hidden;
+	position: relative;
+	line-height: $lineHeight;
+	max-height: $lineHeight * $lineCount;
+	padding-right: 1em;
+}
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> img {
+		position: absolute;
+		display: block;
+		max-width: 100%;
+		max-height: 100%;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: initial;
+	}
+}
